@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide",
 )
 
-# 2. 림버스 컴퍼니 12인 수감자 및 단테 데이터 정의 (성격, 관련 인물, 노래 정보 추가)
+# 2. 림버스 컴퍼니 12인 수감자 및 단테 데이터 정의
 CHARACTER_DATA = {
     "단테 (Dante)": {
         "color": "#FFD700",
@@ -16,7 +16,7 @@ CHARACTER_DATA = {
         "char_image": "https://via.placeholder.com/300x400/222/FFD700?text=Dante",
         "personality": "기억을 잃었으나 따뜻하고 책임감 있는 성격. 수감자들의 폭력적인 성향 사이에서 고뇌하며 중재하는 리더십을 보입니다.",
         "related_figure": "단테 알리기에리 (신곡의 저자)",
-        "songs": "• Limbus Company - 'In Hell We Live, Lament'<br>• 단테 테마 배경 음악 (OST)",
+        "songs": "• Limbus Company - 'In Hell We Live, Lament'\n• 단테 테마 배경 음악 (OST)",
         "description": "림버스 컴퍼니의 관리자. 머리가 황금 시계로 되어 있으며, 수감자들을 부활시키는 능력을 가졌다.",
     },
     "이상 (Yi Sang)": {
@@ -74,7 +74,7 @@ CHARACTER_DATA = {
         "symbol": "🪷",
         "bg_image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/81B29A?text=Hong+Lu",
-        "description": "재벌가 도련님 특유의 해맑음과 잔인한 현실에 대한 무감각함이 공존하는 독특한 성격을 지닙니다.",
+        "personality": "재벌가 도련님 특유의 해맑음과 잔인한 현실에 대한 무감각함이 공존하는 독특한 성격을 지닙니다.",
         "related_figure": "자바오 (조설근의 소설 '홍루몽')",
         "songs": "• 홍루 우아하고 나긋한 분위기의 OST",
         "description": "부유한 가문 출신으로 세상 물정에 다소 어둡지만, 언제나 나긋나긋하고 해맑은 태도를 유지한다.",
@@ -179,7 +179,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# 5. 메인 레이아웃
+# 5. 메인 레이아웃 타이틀
 st.markdown(
     "<h1 class='limbus-title' style='text-align: center;'>LIMBUS COMPANY ARCHIVE</h1>",
     unsafe_allow_html=True,
@@ -229,30 +229,30 @@ if st.session_state.selected_char != "None":
             st.error("이미지를 불러오는 데 실패했습니다. 경로를 확인해주세요.")
 
     with c2:
-        # 성격, 관련 인물, 노래 정보가 포함된 상세 기록 박스
+        # [수정 포인트] HTML 코드 노출 문제를 피하기 위해 스트림릿 네이티브 마크다운과 안전한 스타일 적용
         st.markdown(
             f"""
             <div style="background-color: rgba(20, 20, 20, 0.9); padding: 30px; border-left: 6px solid {data['color']}; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-                <h3 style="color: {data['color']}; margin-top: 0; font-weight: 700;">📂 수감자 상세 기록</h3>
-                <p style="color: #E0E0E0; font-size: 16px; line-height: 1.6;">{data['description']}</p>
-                
-                <hr style="border-color: #444; margin: 20px 0;">
-                
-                <h4 style="color: {data['color']}; margin-bottom: 5px;">💡 성격 및 특징</h4>
-                <p style="color: #D0D0D0; font-size: 15px; line-height: 1.5;">{data['personality']}</p>
-                
-                <h4 style="color: {data['color']}; margin-top: 15px; margin-bottom: 5px;">👤 원작 및 관련 인물</h4>
-                <p style="color: #D0D0D0; font-size: 15px; line-height: 1.5;">{data['related_figure']}</p>
-                
-                <h4 style="color: {data['color']}; margin-top: 15px; margin-bottom: 5px;">🎵 대표 테마 / 관련 음악</h4>
-                <p style="color: #D0D0D0; font-size: 15px; line-height: 1.5;">{data['songs']}</p>
-                
-                <hr style="border-color: #444; margin: 20px 0;">
-                <p style="color: #777; font-size: 13px; font-family: monospace;">LCB BUS SYSTEM // ACCESS GRANTED</p>
             </div>
             """,
             unsafe_allow_html=True,
         )
+        
+        # 내부 콘텐츠는 안전하게 스트림릿 기본 마크다운으로 출력하여 코드 노출 원천 차단
+        st.markdown(f"### 📂 수감자 상세 기록")
+        st.write(data['description'])
+        
+        st.markdown(f"### 💡 성격 및 특징")
+        st.write(data['personality'])
+        
+        st.markdown(f"### 👤 원작 및 관련 인물")
+        st.write(data['related_figure'])
+        
+        st.markdown(f"### 🎵 대표 테마 / 관련 음악")
+        st.markdown(data['songs'])
+        
+        st.markdown("---")
+        st.caption("LCB BUS SYSTEM // ACCESS GRANTED")
 
     st.write("")
     col_btn1, col_btn2, col_btn3 = st.columns([2, 1, 2])
