@@ -107,9 +107,7 @@ if "selected_char" not in st.session_state:
     st.session_state.selected_char = "None"
 
 # 4. 동적 배경 및 UI 스타일 적용 (CSS)
-current_bg = (
-    "https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?q=80&w=1920"
-)
+current_bg = "https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?q=80&w=1920"
 selected_color = "#FFFFFF"
 
 if st.session_state.selected_char != "None":
@@ -185,7 +183,12 @@ if st.session_state.selected_char != "None":
             f"<h2 class='limbus-title' style='text-align: center;'>{char_name}</h2>",
             unsafe_allow_html=True,
         )
-        st.image(data["char_image"], use_column_width=True)
+        
+        # [수정 포인트] 최신 Streamlit 문법(use_container_width) 적용 및 예외 처리
+        try:
+            st.image(data["char_image"], use_container_width=True)
+        except Exception:
+            st.error("이미지를 불러오는 데 실패했습니다. 경로를 확인해주세요.")
 
     with c2:
         st.markdown(
