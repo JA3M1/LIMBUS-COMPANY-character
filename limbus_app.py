@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide",
 )
 
-# 2. 림버스 컴퍼니 12인 수감자 및 단테 데이터 정의 (이미지/음악 링크 보강)
+# 2. 림버스 컴퍼니 12인 수감자 및 단테 데이터 정의 (이미지, 관련 인물 확장, 정확한 장별 OST 반영)
 CHARACTER_DATA = {
     "단테 (Dante)": {
         "color": "#FFD700",
@@ -19,8 +19,8 @@ CHARACTER_DATA = {
         "skills": "• 수감자 부활 및 고통 공유 능력",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/c/c9/Dante_icon.png",
         "personality": "기억을 잃었으나 따뜻하고 책임감 있는 성격. 수감자들의 폭력적인 성향 사이에서 고뇌하며 중재하는 리더십을 보입니다.",
-        "related_figure": "단테 알리기에리 (신곡의 저자) / 수감자 전원",
-        "song_title": "Limbus Company - In Hell We Live, Lament",
+        "related_figure": "• 단테 알리기에리 (신곡의 저자)\n• 베아트리체 (안내자)\n• 베르길리우스 (안내인 및 조력자)\n• 카론 (버스 운전수)\n• 림버스 컴퍼니 수감자 12인 전원",
+        "song_title": "Limbus Company - 'In Hell We Live, Lament' (메인 테마)",
         "song_url": "https://www.youtube.com/watch?v=Q74V085b1-Y",
         "description": "림버스 컴퍼니의 관리자. 머리가 황금 시계로 되어 있으며, 수감자들을 부활시키는 능력을 가졌다.",
     },
@@ -34,9 +34,9 @@ CHARACTER_DATA = {
         "skills": "• 제 4계시록 에고 (흉탄 등)\n• 분홍신 및 거울 파편 응용 기술",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/3/3f/Yi_Sang_Icon.png",
         "personality": "염세적이고 말수가 적으며 난해한 표현을 즐겨 씁니다. 내면에 깊은 통찰력과 예술가적 고뇌가 숨어 있습니다.",
-        "related_figure": "이상 (한국 소설가/시인) / 파우스트, 파계 연구원들",
-        "song_title": "이상 챕터 전투 OST (Canto IV)",
-        "song_url": "https://www.youtube.com/results?search_query=limbus+company+yi+sang+theme",
+        "related_figure": "• 이상 (시인/소설가 본인)\n• 구인회 멤버들 (구보, 박태원, 김유정, 환기 등)\n• 파우스트 (N사 시절 동료 및 지적 파트너)\n• 삼봉, 도참 등 과거 연구원들",
+        "song_title": "Canto IV 대표 OST - 'IDEAL' (이상 챕터)",
+        "song_url": "https://www.youtube.com/results?search_query=limbus+company+canto+4+ost",
         "description": "말수가 적고 난해한 말을 자주 하는 천재 전(前) N사 연구원. 거울 기술과 깊은 연관이 있다.",
     },
     "파우스트 (Faust)": {
@@ -49,8 +49,8 @@ CHARACTER_DATA = {
         "skills": "• 타히트 에고 발현\n• 천재적 지식을 통한 전술 분석",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/6/67/Faust_Icon.png",
         "personality": "오만할 정도로 모든 것을 다 안다는 태도를 보이며, 감정보다는 철저한 이성과 논리에 따라 행동합니다.",
-        "related_figure": "파우스트 (괴테의 희곡) / 림버스 컴퍼니 창립 멤버",
-        "song_title": "파우스트 캐릭터 보이스 및 테마",
+        "related_figure": "• 요한 볼프강 폰 괴테 (원작자)\n• 하인리히 파우스트 (원작 주인공)\n• 메피스토펠레스 (악마/버스의 모티브)\n• 마르가레테 (그레첸)\n• 림버스 컴퍼니 창립 멤버들",
+        "song_title": "파우스트 캐릭터 보이스 및 메피스토펠레스 테마",
         "song_url": "https://www.youtube.com/results?search_query=limbus+company+faust+theme",
         "description": "자신이 모든 것을 알고 있다고 말하는 천재 수감자. 림버스 컴퍼니의 기술적 기반을 혼자서 이해하고 있다.",
     },
@@ -61,12 +61,12 @@ CHARACTER_DATA = {
         "gender": "여성",
         "birthday": "4월 23일",
         "equipment": "란스 형태의 창형 무기 / 정의의 해결사 장비",
-        "skills": "• 라신 에고 및 돌격형 참격 스킬\n• 혈귀 관련 잠재력",
+        "skills": "• 라신 에고 및 돌격형 참격 스킬\n• 혈귀 관련 잠재력 (라 루나 등)",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/1/18/Don_Quixote_Icon.png",
         "personality": "정의와 해결사에 대한 맹목적인 동경으로 가득 차 있으며, 언제나 시끄럽고 엉뚱한 행동으로 주변을 놀라게 합니다.",
-        "related_figure": "돈 키호테 (세르반테스 소설) / 로시반테",
-        "song_title": "돈키호테 챕터 테마 (Canto VII)",
-        "song_url": "https://www.youtube.com/results?search_query=limbus+company+don+quixote+theme",
+        "related_figure": "• 미겔 데 세르반테스 (원작자)\n• 산초 / 로시반테 (말)\n• 둘시네아 (이상화된 연인)\n• 라 만차랜드의 혈귀 권속들\n• 삼손 및 베르길리우스",
+        "song_title": "Canto VII 대표 OST - 'La Luna' (돈키호테 챕터)",
+        "song_url": "https://www.youtube.com/results?search_query=limbus+company+canto+7+ost",
         "description": "정의로운 해결사를 열렬히 동경하는 과격하고 시끄러운 수감자. 언제나 엉뚱한 열정에 차 있다.",
     },
     "료슈 (Ryoshu)": {
@@ -79,8 +79,8 @@ CHARACTER_DATA = {
         "skills": "• 절단 및 광역 참격 에고\n• 예술적 집착을 담은 연계 공격",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/b/bc/Ryoshu_Icon.png",
         "personality": "잔혹하고 폭력적인 행위를 '예술'로 포장하며, 극단적인 줄임말 사용과 마이웨이 성격을 지닙니다.",
-        "related_figure": "아쿠타가와 류노스케 '지옥변' / 딸",
-        "song_title": "료슈 참격 및 처형 테마",
+        "related_figure": "• 아쿠타가와 류노스케 (원작자)\n• 요시히데 (원작 속 화가)\n• 호리카와 공 (영주)\n• 료슈의 딸 (원작 속 의뢰 대상)\n• 림버스 수감자들",
+        "song_title": "료슈 참격 및 처형 전투 테마",
         "song_url": "https://www.youtube.com/results?search_query=limbus+company+ryoshu+theme",
         "description": "예술과 '표현'에 광적으로 집착하는 위험한 인물. 줄임말을 자주 쓰며 폭력을 예술로 여긴다.",
     },
@@ -94,8 +94,8 @@ CHARACTER_DATA = {
         "skills": "• 타히트 및 타격 연계 방어 기술\n• 고위력 반격 및 제압 스킬",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/9/91/Meursault_Icon.png",
         "personality": "감정이 거의 느껴지지 않으며, 불필요한 사유를 거부하고 오직 주어진 명령어와 효율성에만 반응합니다.",
-        "related_figure": "알베르 카뮈 '이방인' / N사 관련 인물",
-        "song_title": "뫼르소 중저음 전투 테마",
+        "related_figure": "• 알베르 카뮈 (원작자)\n• 마리 카드레 (연인)\n• 레몽 무르소 (원작 주인공)\n• 살라마노 영감과 그의 개\n• N사 및 협회 연관 인물들",
+        "song_title": "뫼르소 중저음 방어/전투 테마",
         "song_url": "https://www.youtube.com/results?search_query=limbus+company+meursault+theme",
         "description": "지시받은 사항 외에는 스스로 생각하지 않고 철저히 명령에만 복종하는 효율성의 화신.",
     },
@@ -109,9 +109,9 @@ CHARACTER_DATA = {
         "skills": "• 림버스 컴퍼니 표준 에고 활용\n• 회피 및 디버프 해제 기술",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/a/a3/Hong_Lu_Icon.png",
         "personality": "재벌가 도련님 특유의 해맑음과 잔인한 현실에 대한 무감각함이 공존하는 독특한 성격을 지닙니다.",
-        "related_figure": "조설근 '홍루몽' (가보옥 모티브) / 가문의 인물들",
-        "song_title": "홍루 챕터 테마 (Canto VI)",
-        "song_url": "https://www.youtube.com/results?search_query=limbus+company+hong+lu+theme",
+        "related_figure": "• 조설근 (원작자)\n• 가보옥 (모티브 주인공)\n• 임대옥 / 설보차 (사촌 자매들)\n• 가씨 가문의 친족들 및 하인들\n• 홍루 챕터 관련 도시 인물들",
+        "song_title": "Canto VI 대표 OST 및 홍루 테마",
+        "song_url": "https://www.youtube.com/results?search_query=limbus+company+canto+6+ost",
         "description": "부유한 가문 출신으로 세상 물정에 다소 어둡지만, 언제나 나긋나긋하고 해맑은 태도를 유지한다.",
     },
     "히스클리프 (Heathcliff)": {
@@ -124,8 +124,8 @@ CHARACTER_DATA = {
         "skills": "• 광란의 난타 및 복수심 기반 타격기\n• 에고 '마탄' 등 강력한 딜링",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/f/f6/Heathcliff_Icon.png",
         "personality": "쉽게 분노하고 거친 욕설과 폭력을 일삼지만, 그 이면에는 깊은 애정과 버림받은 상처가 자리하고 있습니다.",
-        "related_figure": "에밀리 브론테 '폭풍의 언덕' / 캐서린",
-        "song_title": "히스클리프 챕터 곡 'Passung'",
+        "related_figure": "• 에밀리 브론테 (원작자)\n• 캐서린 언쇼 (캐시 - 연인/애증)\n• 넬리 딘 (가정부/서술자)\n• 힌들리 언쇼 / 에드거 린튼\n• 워더링 Heights(폭풍의 언덕) 가문의 사람들",
+        "song_title": "Canto VI 대표 OST - 'Through Patches of Violet' (히스클리프 챕터)",
         "song_url": "https://www.youtube.com/watch?v=8b5n6I73g5g",
         "description": "다혈질이고 거친 폭력을 서슴지 않는 복수심에 찬 수감자. 배트형 무기로 적을 타격한다.",
     },
@@ -139,9 +139,9 @@ CHARACTER_DATA = {
         "skills": "• 파도 및 항해술 연계 관통/참격기\n• 고위력 에고 스킬",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/6/6a/Ishmael_Icon.png",
         "personality": "상식적이고 현실적이라 동료들의 뻘짓에 가장 많이 분노하는 '태클 담당'. 집념과 복수심이 강합니다.",
-        "related_figure": "허먼 맨빌 '모비 딕' (피쿼드 호 선원들)",
-        "song_title": "이스마엘 챕터 메인 테마",
-        "song_url": "https://www.youtube.com/results?search_query=limbus+company+ishmael+theme",
+        "related_figure": "• 허먼 멜빌 (원작자)\n• 에이허브 선장 (피쿼드 호의 광기 어린 선장)\n• 퀴퀘그 / 스타벅 (일등 항해사)\n• 피쿼드 호의 선원 동료들\n• 백고래 (파계의 대상)",
+        "song_title": "Canto V 대표 OST - 'AHA' (이스마엘 챕터)",
+        "song_url": "https://www.youtube.com/results?search_query=limbus+company+canto+5+ost",
         "description": "수감자들 중 드물게 상식적이고 이성적인 항해사 출신. 바다와 관련된 트라우마가 있다.",
     },
     "로쟈 (Rodion)": {
@@ -154,8 +154,8 @@ CHARACTER_DATA = {
         "skills": "• 광역 타격 에고 ('로쟈 식' 일격)\n• 체력 흡수 및 강화 스킬",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/3/36/Rodion_Icon.png",
         "personality": "털털하고 언니 같은 성격으로 도박과 요행을 즐기지만, 마음 한켠엔 과거의 무거운 죄책감을 누르고 있습니다.",
-        "related_figure": "도스토옙스키 '죄와 벌' (소냐 등)",
-        "song_title": "로쟈 경쾌한 테마 음악",
+        "related_figure": "• 표도르 도스토옙스키 (원작자)\n• 소냐 (소냐르치카 - 정신적 구원의 인물)\n• 라스콜리니코프 (원작 주인공)\n• 알료나 이바노브나 (전당포 노파)\n• 풀케리야 (어머니) / 두냐 (여동생)",
+        "song_title": "로쟈 낙천적이고 비밀스러운 테마 곡",
         "song_url": "https://www.youtube.com/results?search_query=limbus+company+rodion+theme",
         "description": "도박과 돈을 좋아하며 낙천적이지만, 과거의 어두운 죄책감을 마음 속 깊이 품고 있는 수감자.",
     },
@@ -169,9 +169,9 @@ CHARACTER_DATA = {
         "skills": "• 분노 각성형 참격 연계기\n• 크로머 및 N사 연계 스킬",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/4/4c/Sinclair_Icon.png",
         "personality": "유약하고 겁이 많으나 순수한 소년. 하지만 주변 환경이나 트라우마에 의해 잔혹하게 각성하는 입체적 성격입니다.",
-        "related_figure": "헤르만 헤세 '데미안' (데미안, 크로머)",
-        "song_title": "싱클레어 불안 테마 BGM",
-        "song_url": "https://www.youtube.com/results?search_query=limbus+company+sinclair+theme",
+        "related_figure": "• 헤르만 헤세 (원작자)\n• 에밀 싱클레어 (원작 주인공)\n• 막스 데미안 (정신적 멘토)\n• 프란츠 크로머 (악몽 같은 인물)\n• 에바 부인 (데미안의 어머니)",
+        "song_title": "Canto III 대표 OST 및 싱클레어 테마",
+        "song_url": "https://www.youtube.com/results?search_query=limbus+company+canto+3+ost",
         "description": "겁이 많고 여린 소년이지만, 극한의 상황에서는 잔혹한 면모가 고개를 드는 수감자.",
     },
     "오티스 (Outis)": {
@@ -184,8 +184,8 @@ CHARACTER_DATA = {
         "skills": "• 전술 지휘 및 집중 포화 스킬\n• 강력한 방어 및 카운터 공격",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/e/e0/Outis_Icon.png",
         "personality": "탁월한 전술 감각을 가졌으며 관리자 단테 앞에서는 아첨에 가까울 정도로 충성을 다하는 처세술의 달인.",
-        "related_figure": "호메로스 '오디세이아' (오디세우스)",
-        "song_title": "오티스 전술적 군가풍 테마",
+        "related_figure": "• 호메로스 (원작자)\n• 오디세우스 (오디세이아 주인공)\n• 페넬로페 (아내)\n• 텔레마코스 (아들)\n• 트로이 전쟁 연합군 및 부하 병사들",
+        "song_title": "오티스 군가풍 및 전술적 테마",
         "song_url": "https://www.youtube.com/results?search_query=limbus+company+outis+theme",
         "description": "뛰어난 전술안을 가진 베테랑 군인 출신. 관리자 단테에게 과도할 정도로 충성을 표명한다.",
     },
@@ -199,8 +199,8 @@ CHARACTER_DATA = {
         "skills": "• 벌레 팔 난타 및 절단 스킬\n• 재생 및 참호전 특화 방어",
         "char_image": "https://static.wikia.nocookie.net/limbuscompany/images/e/ef/Gregor_Icon.png",
         "personality": "전직 군인답게 현실적이고 피곤해하는 '동네 아저씨' 재질이지만, 동료들을 뒤에서 묵묵히 챙겨주는 따뜻함이 있습니다.",
-        "related_figure": "프란츠 카프카 '변신' (그레고르 잠자) / 어머니",
-        "song_title": "그레고르 묵직한 베이스 전투 OST",
+        "related_figure": "• 프란츠 카프카 (원작자)\n• 그레고르 잠자 (원작 주인공)\n• 그레고르의 어머니 / 아버지\n• 그레테 잠자 (여동생)\n• G사 및 연기 전쟁 참전 동료들",
+        "song_title": "그레고르 참호전 베이스 전투 OST",
         "song_url": "https://www.youtube.com/results?search_query=limbus+company+gregor+theme",
         "description": "왼팔이 거대한 벌레의 형태로 변이된 전직 군인. 피로에 쩐 아저씨 같은 성격이지만 속은 깊다.",
     },
@@ -283,7 +283,7 @@ if st.session_state.selected_char != "None":
         try:
             st.image(data["char_image"], use_container_width=True)
         except Exception:
-            st.info("캐릭터 이미지를 불러오는 중입니다.")
+            st.info("이미지를 불러오는 중입니다.")
 
     with c2:
         # 정보 박스 및 상징색 타이틀
@@ -299,10 +299,10 @@ if st.session_state.selected_char != "None":
         st.markdown(f"<h3 style='color: {data['color']};'>💡 성격 및 특징</h3>", unsafe_allow_html=True)
         st.write(data['personality'])
         
-        st.markdown(f"<h3 style='color: {data['color']};'>👤 원작 및 관련 인물</h3>", unsafe_allow_html=True)
-        st.write(data['related_figure'])
+        st.markdown(f"<h3 style='color: {data['color']};'>👤 원작 및 주요 관련 인물</h3>", unsafe_allow_html=True)
+        st.markdown(data['related_figure'])
         
-        st.markdown(f"<h3 style='color: {data['color']};'>🎵 관련 노래 / OST</h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='color: {data['color']};'>🎵 장별 대표 노래 / OST</h3>", unsafe_allow_html=True)
         st.markdown(f"[{data['song_title']}]({data['song_url']})")
         
         st.markdown("---")
