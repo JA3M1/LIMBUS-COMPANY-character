@@ -7,13 +7,16 @@ st.set_page_config(
     layout="wide",
 )
 
-# 2. 림버스 컴퍼니 12인 수감자 및 단테 데이터 정의
+# 2. 림버스 컴퍼니 12인 수감자 및 단테 데이터 정의 (성격, 관련 인물, 노래 정보 추가)
 CHARACTER_DATA = {
     "단테 (Dante)": {
         "color": "#FFD700",
         "symbol": "⏰",
         "bg_image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/FFD700?text=Dante",
+        "personality": "기억을 잃었으나 따뜻하고 책임감 있는 성격. 수감자들의 폭력적인 성향 사이에서 고뇌하며 중재하는 리더십을 보입니다.",
+        "related_figure": "단테 알리기에리 (신곡의 저자)",
+        "songs": "• Limbus Company - 'In Hell We Live, Lament'<br>• 단테 테마 배경 음악 (OST)",
         "description": "림버스 컴퍼니의 관리자. 머리가 황금 시계로 되어 있으며, 수감자들을 부활시키는 능력을 가졌다.",
     },
     "이상 (Yi Sang)": {
@@ -21,6 +24,9 @@ CHARACTER_DATA = {
         "symbol": "🪞",
         "bg_image": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/A0C4FF?text=Yi+Sang",
+        "personality": "염세적이고 말수가 적으며 난해한 표현을 즐겨 씁니다. 하지만 내면에는 깊은 통찰력과 예술가적 고뇌가 숨어 있습니다.",
+        "related_figure": "이상 (한국의 소설가/시인, '날개' 작가)",
+        "songs": "• 이상 에고 테마곡 및 게임 메인 OST",
         "description": "말수가 적고 난해한 말을 자주 하는 천재 전(前) N사 연구원. 거울 기술과 깊은 연관이 있다.",
     },
     "파우스트 (Faust)": {
@@ -28,6 +34,9 @@ CHARACTER_DATA = {
         "symbol": "🧪",
         "bg_image": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/70C1B3?text=Faust",
+        "personality": "오만할 정도로 모든 것을 다 안다는 태도를 보이며, 감정보다는 철저한 이성과 논리에 따라 행동합니다.",
+        "related_figure": "파우스트 (요한 볼프강 폰 괴테의 희곡)",
+        "songs": "• 파우스트 캐릭터 성우 인게임 보이스 및 테마",
         "description": "자신이 모든 것을 알고 있다고 말하는 천재 수감자. 림버스 컴퍼니의 기술적 기반을 혼자서 이해하고 있다.",
     },
     "돈키호테 (Don Quixote)": {
@@ -35,6 +44,9 @@ CHARACTER_DATA = {
         "symbol": "🗡️",
         "bg_image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/FFE156?text=Don+Quixote",
+        "personality": "정의와 해결사에 대한 맹목적인 동경으로 가득 차 있으며, 언제나 시끄럽고 엉뚱한 행동으로 주변을 놀라게 합니다.",
+        "related_figure": "돈 키호테 (미겔 데 세르반테스의 소설)",
+        "songs": "• 돈키호테 환호 및 전투 테마",
         "description": "정의로운 해결사를 열렬히 동경하는 과격하고 시끄러운 수감자. 언제나 엉뚱한 열정에 차 있다.",
     },
     "료슈 (Ryoshu)": {
@@ -42,6 +54,9 @@ CHARACTER_DATA = {
         "symbol": "🔪",
         "bg_image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/E76F51?text=Ryoshu",
+        "personality": "잔혹하고 폭력적인 행위를 '예술'로 포장하며, 극단적인 줄임말 사용과 마이웨이 성격을 지닙니다.",
+        "related_figure": "아쿠타가와 류노스케의 소설 '지옥변' (인물 모티브)",
+        "songs": "• 료슈 참격 및 처형 테마 멜로디",
         "description": "예술과 '표현'에 광적으로 집착하는 위험한 인물. 줄임말을 자주 쓰며 폭력을 예술로 여긴다.",
     },
     "뫼르소 (Meursault)": {
@@ -49,6 +64,9 @@ CHARACTER_DATA = {
         "symbol": "📐",
         "bg_image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/4A90E2?text=Meursault",
+        "personality": "감정이 거의 느껴지지 않으며, 불필요한 사유를 거부하고 오직 주어진 명령어와 효율성에만 반응합니다.",
+        "related_figure": "뫼르소 (알베르 카뮈의 소설 '이방인')",
+        "songs": "• 뫼르소 중저음 보이스 및 전투 음악",
         "description": "지시받은 사항 외에는 스스로 생각하지 않고 철저히 명령에만 복종하는 효율성의 화신.",
     },
     "홍루 (Hong Lu)": {
@@ -56,6 +74,9 @@ CHARACTER_DATA = {
         "symbol": "🪷",
         "bg_image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/81B29A?text=Hong+Lu",
+        "description": "재벌가 도련님 특유의 해맑음과 잔인한 현실에 대한 무감각함이 공존하는 독특한 성격을 지닙니다.",
+        "related_figure": "자바오 (조설근의 소설 '홍루몽')",
+        "songs": "• 홍루 우아하고 나긋한 분위기의 OST",
         "description": "부유한 가문 출신으로 세상 물정에 다소 어둡지만, 언제나 나긋나긋하고 해맑은 태도를 유지한다.",
     },
     "히스클리프 (Heathcliff)": {
@@ -63,6 +84,9 @@ CHARACTER_DATA = {
         "symbol": "🏏",
         "bg_image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/3D5A80?text=Heathcliff",
+        "personality": "쉽게 분노하고 거친 욕설과 폭력을 일삼지만, 그 이면에는 깊은 애정과 버림받은 상처가 자리하고 있습니다.",
+        "related_figure": "히스클리프 (에밀리 브론테의 소설 '폭풍의 언덕')",
+        "songs": "• 히스클리프 폭발적인 챕터 전투 곡",
         "description": "다혈질이고 거친 폭력을 서슴지 않는 복수심에 찬 수감자. 배트형 무기로 적을 타격한다.",
     },
     "이스마엘 (Ishmael)": {
@@ -70,6 +94,9 @@ CHARACTER_DATA = {
         "symbol": "⚓",
         "bg_image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/F4A261?text=Ishmael",
+        "personality": "상식적이고 현실적이라 동료들의 뻘짓에 가장 많이 분노하는 '태클 담당'. 집념과 복수심이 강합니다.",
+        "related_figure": "이스마엘 (허먼 맨빌의 소설 '모비 딕')",
+        "songs": "• 이스마엘 챕터 메인 테마 ('AHA' 등)",
         "description": "수감자들 중 드물게 상식적이고 이성적인 항해사 출신. 바다와 관련된 트라우마가 있다.",
     },
     "로쟈 (Rodion)": {
@@ -77,13 +104,19 @@ CHARACTER_DATA = {
         "symbol": "🎲",
         "bg_image": "https://images.unsplash.com/photo-1511193311914-0346f16efe90?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/D90429?text=Rodion",
+        "personality": "털털하고 언니 같은 성격으로 도박과 요행을 즐기지만, 마음 한켠엔 과거의 무거운 죄책감을 누르고 있습니다.",
+        "related_figure": "로디온 라스코리콜프 (표도르 도스토옙스키 '죄와 벌')",
+        "songs": "• 로쟈 경쾌하고 꿍꿍이 있는 느낌의 OST",
         "description": "도박과 돈을 좋아하며 낙천적이지만, 과거의 어두운 죄책감을 마음 속 깊이 품고 있는 수감자.",
     },
     "싱클레어 (Sinclair)": {
         "color": "#B5838D",
         "symbol": "⚙️",
         "bg_image": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1920",
-        "char_image": "https://via.placeholder.com/300x400/222/B5838D?text=Sinclair",
+        "char_image": "https://via.placeholder.com/300x400/222/Sinclair",
+        "personality": "유약하고 겁이 많으나 순수한 소년. 하지만 주변 환경이나 트라우마에 의해 잔혹하게 각성하는 입체적 성격입니다.",
+        "related_figure": "에밀 싱클레어 (헤르만 헤세의 소설 '데미안')",
+        "songs": "• 싱클레어 불안한 심리를 담은 BGM",
         "description": "겁이 많고 여린 소년이지만, 극한의 상황에서는 잔혹한 면모가 고개를 드는 수감자.",
     },
     "오티스 (Outis)": {
@@ -91,6 +124,9 @@ CHARACTER_DATA = {
         "symbol": "🛡️",
         "bg_image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/606C38?text=Outis",
+        "personality": "탁월한 전술 감각을 가졌으며 관리자 단테 앞에서는 아첨에 가까울 정도로 충성을 다하는 처세술의 달인.",
+        "related_figure": "오디세우스 (호메로스의 서사시 '오디세이아')",
+        "songs": "• 오티스 군가풍 및 전술적 느낌의 테마",
         "description": "뛰어난 전술안을 가진 베테랑 군인 출신. 관리자 단테에게 과도할 정도로 충성을 표명한다.",
     },
     "그레고르 (Gregor)": {
@@ -98,6 +134,9 @@ CHARACTER_DATA = {
         "symbol": "🪲",
         "bg_image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920",
         "char_image": "https://via.placeholder.com/300x400/222/9A8C98?text=Gregor",
+        "personality": "전직 군인답게 현실적이고 피곤해하는 '동네 아저씨' 재질이지만, 동료들을 뒤에서 묵묵히 챙겨주는 따뜻함이 있습니다.",
+        "related_figure": "그레고르 잠자 (프란츠 카프카의 소설 '변신')",
+        "songs": "• 그레고르 묵직한 베이스의 전투 OST",
         "description": "왼팔이 거대한 벌레의 형태로 변이된 전직 군인. 피로에 쩐 아저씨 같은 성격이지만 속은 깊다.",
     },
 }
@@ -184,20 +223,32 @@ if st.session_state.selected_char != "None":
             unsafe_allow_html=True,
         )
         
-        # [수정 포인트] 최신 Streamlit 문법(use_container_width) 적용 및 예외 처리
         try:
             st.image(data["char_image"], use_container_width=True)
         except Exception:
             st.error("이미지를 불러오는 데 실패했습니다. 경로를 확인해주세요.")
 
     with c2:
+        # 성격, 관련 인물, 노래 정보가 포함된 상세 기록 박스
         st.markdown(
             f"""
-            <div style="background-color: rgba(20, 20, 20, 0.88); padding: 35px; border-left: 6px solid {data['color']}; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-                <h3 style="color: {data['color']}; margin-top: 0; font-weight: 700;">수감자 상세 기록</h3>
-                <p style="color: #E0E0E0; font-size: 19px; line-height: 1.7;">{data['description']}</p>
-                <hr style="border-color: #444; margin: 25px 0;">
-                <p style="color: #888; font-size: 14px; font-family: monospace;">LCB BUS SYSTEM // ACCESS GRANTED</p>
+            <div style="background-color: rgba(20, 20, 20, 0.9); padding: 30px; border-left: 6px solid {data['color']}; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <h3 style="color: {data['color']}; margin-top: 0; font-weight: 700;">📂 수감자 상세 기록</h3>
+                <p style="color: #E0E0E0; font-size: 16px; line-height: 1.6;">{data['description']}</p>
+                
+                <hr style="border-color: #444; margin: 20px 0;">
+                
+                <h4 style="color: {data['color']}; margin-bottom: 5px;">💡 성격 및 특징</h4>
+                <p style="color: #D0D0D0; font-size: 15px; line-height: 1.5;">{data['personality']}</p>
+                
+                <h4 style="color: {data['color']}; margin-top: 15px; margin-bottom: 5px;">👤 원작 및 관련 인물</h4>
+                <p style="color: #D0D0D0; font-size: 15px; line-height: 1.5;">{data['related_figure']}</p>
+                
+                <h4 style="color: {data['color']}; margin-top: 15px; margin-bottom: 5px;">🎵 대표 테마 / 관련 음악</h4>
+                <p style="color: #D0D0D0; font-size: 15px; line-height: 1.5;">{data['songs']}</p>
+                
+                <hr style="border-color: #444; margin: 20px 0;">
+                <p style="color: #777; font-size: 13px; font-family: monospace;">LCB BUS SYSTEM // ACCESS GRANTED</p>
             </div>
             """,
             unsafe_allow_html=True,
