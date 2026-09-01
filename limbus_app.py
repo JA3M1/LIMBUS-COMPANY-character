@@ -108,7 +108,7 @@ else:
             st.image(current_data["logo"], width=100)
         st.title(current_data["title"])
         if current_data["image"]:
-            st.image(current_data["image"], use_column_width=True)
+            st.image(current_data["image"], width="stretch")
             
     with col2:
         st.markdown(f"### 📌 캐릭터 소개")
