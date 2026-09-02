@@ -3,13 +3,13 @@ import streamlit as st
 # 페이지 설정
 st.set_page_config(page_title="Limbus Company Info", page_icon="⏰", layout="wide")
 
-# 캐릭터별 데이터 정의 (12명 수감자 + 기본 로비)
+# 캐릭터별 데이터 정의 (12명 수감자 + 풍성해진 인간관계 및 정확한 이미지 구조)
 CHARACTER_DATA = {
     "기본 로비": {
         "color": "#D4AF37",
         "bg_color": "#121212",
         "description": "버스를 선택하여 수감자의 정보를 확인하세요.",
-        "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
+        "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop", # 버스/여행 느낌의 고품질 로비 이미지
         "is_lobby": True
     },
     "이상": {
@@ -25,16 +25,18 @@ CHARACTER_DATA = {
             "기본 2스킬: 타격 (타격/우울)",
             "기본 3스킬: 가르기 (참격/색욕)"
         ],
-        "description": "말수가 적고 항상 공허한 눈을 하고 있는 천재이자 시인.",
+        "description": "말수가 적고 항상 공허한 눈을 하고 있는 천재이자 시인. 구(舊) L사에서 일했던 과거가 있다.",
         "relations": [
-            ("파우스트", "서로의 지적 수준을 은근히 존중하는 관계"),
-            ("단테", "자신의 말을 묘하게 이해해 주는 시계대가리")
+            ("파우스트", "서로의 지적 수준과 과거를 은근히 존중하는 관계"),
+            ("단테", "자신의 말을 묘하게 이해해 주는 시계대가리"),
+            ("구보", "과거 이상을 괴로움과 영감으로 몰아넣었던 인물"),
+            ("동백", "과거 이상이 품었던 이상향과 예술의 상징")
         ],
         "songs": [
             {"title": "이상 테마곡 - Effloresced", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/0d1626/4A90E2?text=Yi+Sang",
+        "logo": "https://placehold.co/100x100/0d1626/4A90E2?text=Yi+Sang+Logo",
         "is_lobby": False
     },
     "파우스트": {
@@ -53,13 +55,15 @@ CHARACTER_DATA = {
         "description": "도시 최고의 천재라 자부하며, 메피스토펠레스의 엔진을 설계한 수감자.",
         "relations": [
             ("단테", "관리자의 역할을 설명해주지만, 종종 오만한 태도를 보임"),
-            ("베르길리우스", "서로의 속내를 숨긴 채 협력하는 관계")
+            ("베르길리우스", "서로의 속내를 숨긴 채 협력하는 비즈니스 관계"),
+            ("카론", "자신이 만든 버스를 운전하는 길잡이"),
+            ("헤르만", "과거 파우스트가 속해있던 집단의 인물")
         ],
         "songs": [
-            {"title": "파우스트 테마 관련 OST", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
+            {"title": "파우스트 관련 테마 OST", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/2a1516/FFB1B4?text=Faust",
+        "logo": "https://placehold.co/100x100/2a1516/FFB1B4?text=Faust+Logo",
         "is_lobby": False
     },
     "돈키호테": {
@@ -73,18 +77,20 @@ CHARACTER_DATA = {
         "skills": [
             "기본 1스킬: 찌르기 (관통/오만)",
             "기본 2스킬: 정의의 일격 (관통/질투)",
-            "기본 3s킬: 돌진 (관통/분노)"
+            "기본 3스킬: 돌진 (관통/분노)"
         ],
-        "description": "지상 최고의 해결사인 '포졸'과 '색마'를 동경하며 정의를르 부르짖는 열혈 수감자.",
+        "description": "지상 최고의 해결사인 '포졸'과 '색마'를 동경하며 정의를 부르짖는 열혈 수감자.",
         "relations": [
-            ("로쟈", "함께 장난을 치거나 어울리는 유쾌한 조합"),
-            ("단테", "자신의 영웅이자 관리자님")
+            ("로쟈", "함께 장난을 치거나 어울리는 유쾌한 언니 동생 관계"),
+            ("단테", "자신의 영웅이자 관리자님"),
+            ("산초 / 피쿼드호", "돈키호테의 숨겨진 과거와 연관된 인물들"),
+            ("로시난테", "돈키호테의 억압구이자 구속구")
         ],
         "songs": [
             {"title": "돈키호테 관련 곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/26220d/FFD700?text=Don+Quixote",
+        "logo": "https://placehold.co/100x100/26220d/FFD700?text=Don+Logo",
         "is_lobby": False
     },
     "료슈": {
@@ -102,13 +108,15 @@ CHARACTER_DATA = {
         ],
         "description": "손에 항상 담배를 들고 다니며, 잔인하고 폭력적인 행위를 예술로 비유하는 수감자.",
         "relations": [
-            ("싱클레어", "은근히 료슈를 무서워하면서도 엮이는 수감자")
+            ("싱클레어", "은근히 료슈를 무서워하면서도 엮이는 수감자"),
+            ("파우스트", "서로의 사상을 존중 혹은 무시하는 묘한 긴장감"),
+            ("오티스", "군기 잡는 모습에 질색하거나 비웃는 관계")
         ],
         "songs": [
             {"title": "료슈 관련 곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/2a0d0d/C0392B?text=Ryoshu",
+        "logo": "https://placehold.co/100x100/2a0d0d/C0392B?text=Ryoshu+Logo",
         "is_lobby": False
     },
     "히스클리프": {
@@ -126,15 +134,18 @@ CHARACTER_DATA = {
         ],
         "description": "폭주하기 쉬운 다혈질이지만, 그 이면에 깊은 상처와 집착을 품고 있는 수감자.",
         "relations": [
+            ("단테", "시계대가리라 부르며 막 대하지만 은근히 따름"),
             ("이스마엘", "버스 내에서 툭하면 의견 충돌로 싸우는 앙숙 관계"),
-            ("캐서린", "모든 행동의 이유이자 애증이 얽힌 연인")
+            ("캐서린", "모든 행동의 이유이자 애증이 얽힌 연인"),
+            ("넬리", "워더링하이츠 시절부터 알고 지낸 인물"),
+            ("뫼르소", "임무 수행 중 성향 차이로 자주 대조되는 인물")
         ],
         "songs": [
             {"title": "Through Patches of Violet (Mili)", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"},
             {"title": "사라지네 (Vocal. 히스클리프)", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/0d1b2a/1C355E?text=Heathcliff",
+        "logo": "https://placehold.co/100x100/0d1b2a/1C355E?text=Heathcliff+Logo",
         "is_lobby": False
     },
     "뫼르소": {
@@ -152,13 +163,15 @@ CHARACTER_DATA = {
         ],
         "description": "명령에 절대적으로 복종하며 감정이 거의 드러나지 않는 철저한 합리주의자.",
         "relations": [
-            ("히스클리프", "정반대의 성향으로 자주 부딪힘")
+            ("히스클리프", "정반대의 성향으로 자주 부딪힘"),
+            ("파우스트", "지시를 내리고 해석하는 논리적 파트너"),
+            ("오티스", "규율과 명령을 중시한다는 점에서 통하는 구석이 있음")
         ],
         "songs": [
             {"title": "뫼르소 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/0f2027/2980B9?text=Meursault",
+        "logo": "https://placehold.co/100x100/0f2027/2980B9?text=Meursault+Logo",
         "is_lobby": False
     },
     "홍루": {
@@ -176,13 +189,15 @@ CHARACTER_DATA = {
         ],
         "description": "부유한 저택에서 자라 세상 물정에 다소 어둡지만, 천진난만한 성격의 수감자.",
         "relations": [
-            ("싱클레어", "순진한 면모로 공감대를 형성")
+            ("싱클레어", "순진한 면모로 공감대를 형성"),
+            ("가문 사람들", "홍루가 도망쳐 나온 저택의 복잡한 혈족들"),
+            ("이스마엘", "홍루의 엉뚱한 소리에 자주 태클을 거는 인물")
         ],
         "songs": [
             {"title": "홍루 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/26170d/E67E22?text=Hong+Lu",
+        "logo": "https://placehold.co/100x100/26170d/E67E22?text=Hong+Lu+Logo",
         "is_lobby": False
     },
     "이스마엘": {
@@ -200,14 +215,16 @@ CHARACTER_DATA = {
         ],
         "description": "합리적이고 이성적이지만, 과거의 복수심(에이해브)에 사로잡혀 있던 수감자.",
         "relations": [
+            ("단테", "관리자의 무능함을 지적하면서도 끝내 의지함"),
             ("히스클리프", "이성적인 자신과 본능적인 히스클리프 사이의 끝없는 마찰"),
-            ("에이해브", "맹목적인 증오의 대상")
+            ("에이해브", "맹목적인 증오의 대상이자 과거 선장"),
+            ("퀴케그", "과거 항해 시절 깊은 유대를 나눴던 동료")
         ],
         "songs": [
             {"title": "Compass (Mili)", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/211000/FF7E00?text=Ishmael",
+        "logo": "https://placehold.co/100x100/211000/FF7E00?text=Ishmael+Logo",
         "is_lobby": False
     },
     "오티스": {
@@ -221,17 +238,19 @@ CHARACTER_DATA = {
         "skills": [
             "기본 1스킬: 찌르기 (관통/오만)",
             "기본 2스킬: 사격 (관통/색욕)",
-            "기본 3s킬: 집중 포화 (관통/분노)"
+            "기본 3스킬: 집중 포화 (관통/분노)"
         ],
         "description": "군인 출신으로 관리자(단테)에게 극단적일 정도로 충성하는 베테랑.",
         "relations": [
-            ("그레고르", "군대식 농담이나 갈등을 자주 빚음")
+            ("그레고르", "군대식 농담이나 과거 전쟁 트라우마로 갈등을 빚음"),
+            ("단테", "맹목적인 충성과 찬양의 대상"),
+            ("베르길리우스", "버스의 지휘권을 두고 은근한 경계심을 품는 관계")
         ],
         "songs": [
             {"title": "오티스 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/0d2616/27AE60?text=Outis",
+        "logo": "https://placehold.co/100x100/0d2616/27AE60?text=Outis+Logo",
         "is_lobby": False
     },
     "로쟈": {
@@ -249,13 +268,15 @@ CHARACTER_DATA = {
         ],
         "description": "여유롭고 낙천적인 성격이지만, 깊은 내면에는 과거의 무거운 선택에 대한 죄책감이 숨어있는 수감자.",
         "relations": [
-            ("돈키호테", "장난을 치며 잘 받아주는 언니 같은 관계")
+            ("돈키호테", "장난을 치며 잘 받아주는 친근한 언니 동생 관계"),
+            ("싱클레어", "누나처럼 여린 마음을 다독여주는 관계"),
+            ("소냐", "과거 로쟈가 살던 동네의 사상적 영향을 준 인물")
         ],
         "songs": [
             {"title": "로쟈 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/1f0d26/9B59B6?text=Rodion",
+        "logo": "https://placehold.co/100x100/1f0d26/9B59B6?text=Rodion+Logo",
         "is_lobby": False
     },
     "싱클레어": {
@@ -273,13 +294,16 @@ CHARACTER_DATA = {
         ],
         "description": "순수하고 여린 소년이지만, 극한의 상황에서 잠재된 광기와 폭력성을 드러내는 수감자.",
         "relations": [
-            ("크로마르", "과거 트라우마의 원흉이자 악연")
+            ("크로마르", "과거 트라우마의 원흉이자 벗어날 수 없는 악연"),
+            ("데미안", "싱클레어에게 조언을 건네며 이끄는 미스터리한 인물"),
+            ("료슈", "공포의 대상이자 무서워하는 선배 수감자"),
+            ("홍루", "순진한 성향이 비슷해 편안함을 느끼는 상대")
         ],
         "songs": [
             {"title": "싱클레어 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/261f0d/F39C12?text=Sinclair",
+        "logo": "https://placehold.co/100x100/261f0d/F39C12?text=Sinclair+Logo",
         "is_lobby": False
     },
     "그레고르": {
@@ -297,13 +321,15 @@ CHARACTER_DATA = {
         ],
         "description": "과거 연기전쟁의 용병 출신으로, 벌레로 변이된 오른팔을 지니고 있는 베테랑 수감자.",
         "relations": [
-            ("오티스", "군대 경험을 공유하지만 서로 툴툴거림")
+            ("오티스", "군대 경험을 공유하지만 서로 툴툴거리는 앙숙"),
+            ("헤르만", "그레고르의 벌레 팔과 과거 전쟁에 깊게 관여된 인물"),
+            ("단테", "농담을 주고받으며 편하게 대하는 관리자")
         ],
         "songs": [
             {"title": "그레고르 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop",
-        "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop",
+        "image": "https://placehold.co/400x600/1a1c1d/7F8C8D?text=Gregor",
+        "logo": "https://placehold.co/100x100/1a1c1d/7F8C8D?text=Gregor+Logo",
         "is_lobby": False
     }
 }
@@ -365,7 +391,7 @@ else:
         for skill in current_data["skills"]:
             st.markdown(f"- {skill}")
             
-        st.markdown("### 🤝 인물 관계도")
+        st.markdown("### 🤝 인간관계 및 주변 인물")
         for rel_name, rel_desc in current_data["relations"]:
             st.markdown(f"- **{rel_name}**: {rel_desc}")
             
