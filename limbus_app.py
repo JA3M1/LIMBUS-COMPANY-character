@@ -1,15 +1,18 @@
+import os
 import streamlit as st
+from PIL import Image
 
 # 페이지 설정
 st.set_page_config(page_title="Limbus Company Info", page_icon="⏰", layout="wide")
 
-# 캐릭터별 데이터 정의 (12명 수감자 + 풍성해진 인간관계 및 정확한 이미지 구조)
+# 캐릭터별 데이터 정의 (로컬 이미지 경로 연결 방식)
+# 주의: 'images' 폴더 안에 실제 이미지 파일이 있어야 정상적으로 표시됩니다.
 CHARACTER_DATA = {
     "기본 로비": {
         "color": "#D4AF37",
         "bg_color": "#121212",
         "description": "버스를 선택하여 수감자의 정보를 확인하세요.",
-        "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop", # 버스/여행 느낌의 고품질 로비 이미지
+        "image": "images/lobby.png",
         "is_lobby": True
     },
     "이상": {
@@ -35,8 +38,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "이상 테마곡 - Effloresced", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/0d1626/4A90E2?text=Yi+Sang",
-        "logo": "https://placehold.co/100x100/0d1626/4A90E2?text=Yi+Sang+Logo",
+        "image": "images/yi_sang_profile.png",
+        "combat_image": "images/yi_sang_combat.png",
+        "post_story_image": "images/yi_sang_post.png", # 4장 등 특정 장 이후 변화 모습
+        "logo": "images/yi_sang_logo.png",
         "is_lobby": False
     },
     "파우스트": {
@@ -62,8 +67,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "파우스트 관련 테마 OST", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/2a1516/FFB1B4?text=Faust",
-        "logo": "https://placehold.co/100x100/2a1516/FFB1B4?text=Faust+Logo",
+        "image": "images/faust_profile.png",
+        "combat_image": "images/faust_combat.png",
+        "post_story_image": "images/faust_post.png",
+        "logo": "images/faust_logo.png",
         "is_lobby": False
     },
     "돈키호테": {
@@ -89,8 +96,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "돈키호테 관련 곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/26220d/FFD700?text=Don+Quixote",
-        "logo": "https://placehold.co/100x100/26220d/FFD700?text=Don+Logo",
+        "image": "images/don_profile.png",
+        "combat_image": "images/don_combat.png",
+        "post_story_image": "images/don_post.png", # 7장 등 이후 변화 모습
+        "logo": "images/don_logo.png",
         "is_lobby": False
     },
     "료슈": {
@@ -115,8 +124,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "료슈 관련 곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/2a0d0d/C0392B?text=Ryoshu",
-        "logo": "https://placehold.co/100x100/2a0d0d/C0392B?text=Ryoshu+Logo",
+        "image": "images/ryoshu_profile.png",
+        "combat_image": "images/ryoshu_combat.png",
+        "post_story_image": "images/ryoshu_post.png",
+        "logo": "images/ryoshu_logo.png",
         "is_lobby": False
     },
     "히스클리프": {
@@ -144,8 +155,10 @@ CHARACTER_DATA = {
             {"title": "Through Patches of Violet (Mili)", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"},
             {"title": "사라지네 (Vocal. 히스클리프)", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/0d1b2a/1C355E?text=Heathcliff",
-        "logo": "https://placehold.co/100x100/0d1b2a/1C355E?text=Heathcliff+Logo",
+        "image": "images/heathcliff_profile.png",
+        "combat_image": "images/heathcliff_combat.png",
+        "post_story_image": "images/heathcliff_post.png", # 6장 이후 변화 모습
+        "logo": "images/heathcliff_logo.png",
         "is_lobby": False
     },
     "뫼르소": {
@@ -170,8 +183,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "뫼르소 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/0f2027/2980B9?text=Meursault",
-        "logo": "https://placehold.co/100x100/0f2027/2980B9?text=Meursault+Logo",
+        "image": "images/meursault_profile.png",
+        "combat_image": "images/meursault_combat.png",
+        "post_story_image": "images/meursault_post.png",
+        "logo": "images/meursault_logo.png",
         "is_lobby": False
     },
     "홍루": {
@@ -196,8 +211,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "홍루 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/26170d/E67E22?text=Hong+Lu",
-        "logo": "https://placehold.co/100x100/26170d/E67E22?text=Hong+Lu+Logo",
+        "image": "images/honglu_profile.png",
+        "combat_image": "images/honglu_combat.png",
+        "post_story_image": "images/honglu_post.png",
+        "logo": "images/honglu_logo.png",
         "is_lobby": False
     },
     "이스마엘": {
@@ -223,8 +240,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "Compass (Mili)", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/211000/FF7E00?text=Ishmael",
-        "logo": "https://placehold.co/100x100/211000/FF7E00?text=Ishmael+Logo",
+        "image": "images/ishmael_profile.png",
+        "combat_image": "images/ishmael_combat.png",
+        "post_story_image": "images/ishmael_post.png", # 5장 이후 변화 모습
+        "logo": "images/ishmael_logo.png",
         "is_lobby": False
     },
     "오티스": {
@@ -249,8 +268,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "오티스 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/0d2616/27AE60?text=Outis",
-        "logo": "https://placehold.co/100x100/0d2616/27AE60?text=Outis+Logo",
+        "image": "images/outis_profile.png",
+        "combat_image": "images/outis_combat.png",
+        "post_story_image": "images/outis_post.png",
+        "logo": "images/outis_logo.png",
         "is_lobby": False
     },
     "로쟈": {
@@ -275,8 +296,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "로쟈 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/1f0d26/9B59B6?text=Rodion",
-        "logo": "https://placehold.co/100x100/1f0d26/9B59B6?text=Rodion+Logo",
+        "image": "images/rodion_profile.png",
+        "combat_image": "images/rodion_combat.png",
+        "post_story_image": "images/rodion_post.png",
+        "logo": "images/rodion_logo.png",
         "is_lobby": False
     },
     "싱클레어": {
@@ -302,8 +325,10 @@ CHARACTER_DATA = {
         "songs": [
             {"title": "싱클레어 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/261f0d/F39C12?text=Sinclair",
-        "logo": "https://placehold.co/100x100/261f0d/F39C12?text=Sinclair+Logo",
+        "image": "images/sinclair_profile.png",
+        "combat_image": "images/sinclair_combat.png",
+        "post_story_image": "images/sinclair_post.png", # 3장 이후 변화 모습
+        "logo": "images/sinclair_logo.png",
         "is_lobby": False
     },
     "그레고르": {
@@ -321,18 +346,27 @@ CHARACTER_DATA = {
         ],
         "description": "과거 연기전쟁의 용병 출신으로, 벌레로 변이된 오른팔을 지니고 있는 베테랑 수감자.",
         "relations": [
-            ("오티스", "군대 경험을 공유하지만 서로 툴툴거리는 앙숙"),
+            ("오티스", "군대식 농담이나 서로 툴툴거리는 앙숙"),
             ("헤르만", "그레고르의 벌레 팔과 과거 전쟁에 깊게 관여된 인물"),
             ("단테", "농담을 주고받으며 편하게 대하는 관리자")
         ],
         "songs": [
             {"title": "그레고르 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
         ],
-        "image": "https://placehold.co/400x600/1a1c1d/7F8C8D?text=Gregor",
-        "logo": "https://placehold.co/100x100/1a1c1d/7F8C8D?text=Gregor+Logo",
+        "image": "images/gregor_profile.png",
+        "combat_image": "images/gregor_combat.png",
+        "post_story_image": "images/gregor_post.png",
+        "logo": "images/gregor_logo.png",
         "is_lobby": False
     }
 }
+
+# 안전하게 이미지를 로드하는 함수 (파일이 없으면 경고 메시지 대체)
+def safe_load_image(path):
+    if os.path.exists(path):
+        return Image.open(path)
+    else:
+        return None
 
 # 세션 상태 초기화
 if "selected_char" not in st.session_state:
@@ -352,7 +386,7 @@ current_data = CHARACTER_DATA[st.session_state["selected_char"]]
 theme_color = current_data["color"]
 bg_color = current_data["bg_color"]
 
-# CSS 스타일 주입 (배경색 및 폰트 색상 동적 변경)
+# CSS 스타일 주입
 st.markdown(f"""
     <style>
     .stApp {{ background-color: {bg_color}; }}
@@ -366,17 +400,47 @@ st.markdown(f"""
 if current_data["is_lobby"]:
     st.title("LIMBUS COMPANY - LOBBY")
     st.markdown(current_data["description"])
-    st.image(current_data["image"], use_container_width=True)
+    lobby_img = safe_load_image(current_data["image"])
+    if lobby_img:
+        st.image(lobby_img, use_container_width=True)
+    else:
+        st.info("💡 'images/lobby.png' 파일을 추가하시면 로비 이미지가 여기에 표시됩니다.")
 else:
-    # 캐릭터 상세 페이지
+    # 캐릭터 상세 페이지 레이아웃
     col1, col2 = st.columns([1, 1.5])
     
     with col1:
-        if current_data["logo"]:
-            st.image(current_data["logo"], width=80)
+        # 로고 표시
+        logo_img = safe_load_image(current_data["logo"])
+        if logo_img:
+            st.image(logo_img, width=80)
+            
         st.title(current_data["title"])
         st.markdown(f"*{current_data['quote']}*")
-        st.image(current_data["image"], use_container_width=True)
+        
+        # 탭을 활용해 '일상/기본 모습', '전투 중 모습', '특정 장 이후 변화 모습' 선택 표시
+        img_tab1, img_tab2, img_tab3 = st.tabs(["기본 모습", "전투 중 모습", "스토리 후 변화"])
+        
+        with img_tab1:
+            profile_img = safe_load_image(current_data["image"])
+            if profile_img:
+                st.image(profile_img, use_container_width=True)
+            else:
+                st.warning(f"프로필 이미지 파일이 없습니다 ({current_data['image']})")
+                
+        with img_tab2:
+            combat_img = safe_load_image(current_data["combat_image"])
+            if combat_img:
+                st.image(combat_img, use_container_width=True)
+            else:
+                st.warning(f"전투 이미지 파일이 없습니다 ({current_data['combat_image']})")
+                
+        with img_tab3:
+            post_img = safe_load_image(current_data["post_story_image"])
+            if post_img:
+                st.image(post_img, use_container_width=True)
+            else:
+                st.warning(f"스토리 후 변화 이미지 파일이 없습니다 ({current_data['post_story_image']})")
         
         st.markdown("### 📋 기본 정보")
         st.markdown(f"- **성별**: {current_data['gender']}")
