@@ -3,18 +3,17 @@ import streamlit as st
 # 페이지 설정
 st.set_page_config(page_title="Limbus Company Info", page_icon="⏰", layout="wide")
 
-# 캐릭터별 데이터 정의 (림버스 컴퍼니 공식 위키 기반의 안정적인 이미지 링크 적용)
+# 캐릭터별 데이터 (상징색, 스토리 배경 이미지, 프로필/전투/스토리후/로고 이미지)
 CHARACTER_DATA = {
     "기본 로비": {
-        "color": "#D4AF37",
-        "bg_color": "#121212",
+        "color": "#FFD700", # 황금색
+        "bg_image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop", # 로비 감성의 어두운 테마 배경 대체 링크
         "description": "버스를 선택하여 수감자의 정보를 확인하세요.",
-        "image": "https://static.wikia.nocookie.net/limbuscompany/images/5/55/Mephistopheles_Icon.png",
         "is_lobby": True
     },
     "이상": {
-        "color": "#4A90E2",
-        "bg_color": "#0d1626",
+        "color": "#4A90E2", # 이상 상징 파란색
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/e/ee/Canto_IV_Background.png", # 4장 장화원 배경 등
         "title": "제1수감자 이상",
         "gender": "남성",
         "birthday": "미상",
@@ -32,9 +31,7 @@ CHARACTER_DATA = {
             ("구보", "과거 이상을 괴로움과 영감으로 몰아넣었던 인물"),
             ("동백", "과거 이상이 품었던 이상향과 예술의 상징")
         ],
-        "songs": [
-            {"title": "이상 테마곡 - Effloresced", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "이상 테마곡 - Effloresced", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/7/73/Yi_Sang_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/0/07/Yi_Sang_ID.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/7/73/Yi_Sang_Icon.png",
@@ -42,8 +39,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "파우스트": {
-        "color": "#FFB1B4",
-        "bg_color": "#2a1516",
+        "color": "#FFB1B4", # 파우스트 핑크
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/b/b4/Lab_Background.png",
         "title": "제2수감자 파우스트",
         "gender": "여성",
         "birthday": "미상",
@@ -58,12 +55,9 @@ CHARACTER_DATA = {
         "relations": [
             ("단테", "관리자의 역할을 설명해주지만, 종종 오만한 태도를 보임"),
             ("베르길리우스", "서로의 속내를 숨긴 채 협력하는 비즈니스 관계"),
-            ("카론", "자신이 만든 버스를 운전하는 길잡이"),
-            ("헤르만", "과거 파우스트가 속해있던 집단의 인물")
+            ("카론", "자신이 만든 버스를 운전하는 길잡이")
         ],
-        "songs": [
-            {"title": "파우스트 관련 테마 OST", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "파우스트 관련 테마 OST", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/8/82/Faust_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/8/82/Faust_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/8/82/Faust_Icon.png",
@@ -71,8 +65,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "돈키호테": {
-        "color": "#FFD700",
-        "bg_color": "#26220d",
+        "color": "#FFD700", # 돈키호테 노란색
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/7/70/Canto_VII_Background.png", # 7장 라만차랜드 배경
         "title": "제3수감자 돈키호테",
         "gender": "여성",
         "birthday": "미상",
@@ -83,16 +77,12 @@ CHARACTER_DATA = {
             "기본 2스킬: 정의의 일격 (관통/질투)",
             "기본 3스킬: 돌진 (관통/분노)"
         ],
-        "description": "지상 최고의 해결사인 '포졸'과 '색마'를 동경하며 정의를 부르짖는 열혈 수감자.",
+        "description": "지상 최고의 해결사를 동경하며 정의를 부르짖는 열혈 수감자.",
         "relations": [
             ("로쟈", "함께 장난을 치거나 어울리는 유쾌한 언니 동생 관계"),
-            ("단테", "자신의 영웅이자 관리자님"),
-            ("산초 / 피쿼드호", "돈키호테의 숨겨진 과거와 연관된 인물들"),
-            ("로시난테", "돈키호테의 억압구이자 구속구")
+            ("단테", "자신의 영웅이자 관리자님")
         ],
-        "songs": [
-            {"title": "돈키호테 관련 곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "돈키호테 관련 곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/2/29/Don_Quixote_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/2/29/Don_Quixote_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/2/29/Don_Quixote_Icon.png",
@@ -100,8 +90,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "료슈": {
-        "color": "#C0392B",
-        "bg_color": "#2a0d0d",
+        "color": "#C0392B", # 료슈 적색
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/2/2b/Alleyway_Background.png",
         "title": "제4수감자 료슈",
         "gender": "여성",
         "birthday": "미상",
@@ -114,13 +104,9 @@ CHARACTER_DATA = {
         ],
         "description": "손에 항상 담배를 들고 다니며, 잔인하고 폭력적인 행위를 예술로 비유하는 수감자.",
         "relations": [
-            ("싱클레어", "은근히 료슈를 무서워하면서도 엮이는 수감자"),
-            ("파우스트", "서로의 사상을 존중 혹은 무시하는 묘한 긴장감"),
-            ("오티스", "군기 잡는 모습에 질색하거나 비웃는 관계")
+            ("싱클레어", "은근히 료슈를 무서워하면서도 엮이는 수감자")
         ],
-        "songs": [
-            {"title": "료슈 관련 곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "료슈 관련 곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/3/3b/Ryōshū_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/3/3b/Ryōshū_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/3/3b/Ryōshū_Icon.png",
@@ -128,8 +114,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "히스클리프": {
-        "color": "#1C355E",
-        "bg_color": "#0d1b2a",
+        "color": "#4682B4", # 히스클리프 스틸블루/남색 계열
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/5/52/Canto_VI_Background.png", # 6장 워더링하이츠 배경
         "title": "제5수감자 히스클리프",
         "gender": "남성",
         "birthday": "미상",
@@ -142,11 +128,8 @@ CHARACTER_DATA = {
         ],
         "description": "폭주하기 쉬운 다혈질이지만, 그 이면에 깊은 상처와 집착을 품고 있는 수감자.",
         "relations": [
-            ("단테", "시계대가리라 부르며 막 대하지만 은근히 따름"),
             ("이스마엘", "버스 내에서 툭하면 의견 충돌로 싸우는 앙숙 관계"),
-            ("캐서린", "모든 행동의 이유이자 애증이 얽힌 연인"),
-            ("넬리", "워더링하이츠 시절부터 알고 지낸 인물"),
-            ("뫼르소", "임무 수행 중 성향 차이로 자주 대조되는 인물")
+            ("캐서린", "모든 행동의 이유이자 애증이 얽힌 연인")
         ],
         "songs": [
             {"title": "Through Patches of Violet (Mili)", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"},
@@ -160,7 +143,7 @@ CHARACTER_DATA = {
     },
     "뫼르소": {
         "color": "#2980B9",
-        "bg_color": "#0f2027",
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/b/b4/Lab_Background.png",
         "title": "제6수감자 뫼르소",
         "gender": "남성",
         "birthday": "미상",
@@ -173,13 +156,9 @@ CHARACTER_DATA = {
         ],
         "description": "명령에 절대적으로 복종하며 감정이 거의 드러나지 않는 철저한 합리주의자.",
         "relations": [
-            ("히스클리프", "정반대의 성향으로 자주 부딪힘"),
-            ("파우스트", "지시를 내리고 해석하는 논리적 파트너"),
-            ("오티스", "규율과 명령을 중시한다는 점에서 통하는 구석이 있음")
+            ("히스클리프", "정반대의 성향으로 자주 부딪힘")
         ],
-        "songs": [
-            {"title": "뫼르소 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "뫼르소 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/e/ef/Meursault_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/e/ef/Meursault_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/e/ef/Meursault_Icon.png",
@@ -188,7 +167,7 @@ CHARACTER_DATA = {
     },
     "홍루": {
         "color": "#E67E22",
-        "bg_color": "#26170d",
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/2/2b/Alleyway_Background.png",
         "title": "제7수감자 홍루",
         "gender": "남성",
         "birthday": "미상",
@@ -201,13 +180,9 @@ CHARACTER_DATA = {
         ],
         "description": "부유한 저택에서 자라 세상 물정에 다소 어둡지만, 천진난만한 성격의 수감자.",
         "relations": [
-            ("싱클레어", "순진한 면모로 공감대를 형성"),
-            ("가문 사람들", "홍루가 도망쳐 나온 저택의 복잡한 혈족들"),
-            ("이스마엘", "홍루의 엉뚱한 소리에 자주 태클을 거는 인물")
+            ("싱클레어", "순진한 면모로 공감대를 형성")
         ],
-        "songs": [
-            {"title": "홍루 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "홍루 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/1/10/Hong_Lu_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/1/10/Hong_Lu_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/1/10/Hong_Lu_Icon.png",
@@ -215,8 +190,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "이스마엘": {
-        "color": "#FF7E00",
-        "bg_color": "#211000",
+        "color": "#FF7E00", # 이스마엘 주황색
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/9/93/Canto_V_Background.png", # 5장 바다/위대한 항로 배경
         "title": "제8수감자 이스마엘",
         "gender": "여성",
         "birthday": "미상",
@@ -229,14 +204,10 @@ CHARACTER_DATA = {
         ],
         "description": "합리적이고 이성적이지만, 과거의 복수심(에이해브)에 사로잡혀 있던 수감자.",
         "relations": [
-            ("단테", "관리자의 무능함을 지적하면서도 끝내 의지함"),
             ("히스클리프", "이성적인 자신과 본능적인 히스클리프 사이의 끝없는 마찰"),
-            ("에이해브", "맹목적인 증오의 대상이자 과거 선장"),
-            ("퀴케그", "과거 항해 시절 깊은 유대를 나눴던 동료")
+            ("에이해브", "맹목적인 증오의 대상이자 과거 선장")
         ],
-        "songs": [
-            {"title": "Compass (Mili)", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "Compass (Mili)", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/7/7b/Ishmael_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/7/7b/Ishmael_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/7/7b/Ishmael_Icon.png",
@@ -244,8 +215,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "오티스": {
-        "color": "#27AE60",
-        "bg_color": "#0d2616",
+        "color": "#27AE60", # 오티스 초록색
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/b/b4/Lab_Background.png",
         "title": "제9수감자 오티스",
         "gender": "여성",
         "birthday": "미상",
@@ -254,17 +225,13 @@ CHARACTER_DATA = {
         "skills": [
             "기본 1스킬: 찌르기 (관통/오만)",
             "기본 2스킬: 사격 (관통/색욕)",
-            "기본 3s킬: 집중 포화 (관통/분노)"
+            "기본 3스킬: 집중 포화 (관통/분노)"
         ],
         "description": "군인 출신으로 관리자(단테)에게 극단적일 정도로 충성하는 베테랑.",
         "relations": [
-            ("그레고르", "군대식 농담이나 과거 전쟁 트라우마로 갈등을 빚음"),
-            ("단테", "맹목적인 충성과 찬양의 대상"),
-            ("베르길리우스", "버스의 지휘권을 두고 은근한 경계심을 품는 관계")
+            ("그레고르", "군대식 농담이나 과거 전쟁 트라우마로 갈등을 빚음")
         ],
-        "songs": [
-            {"title": "오티스 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "오티스 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/f/f6/Outis_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/f/f6/Outis_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/f/f6/Outis_Icon.png",
@@ -272,8 +239,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "로쟈": {
-        "color": "#9B59B6",
-        "bg_color": "#1f0d26",
+        "color": "#9B59B6", # 로쟈 보라색
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/2/2b/Alleyway_Background.png",
         "title": "제10수감자 로쟈",
         "gender": "여성",
         "birthday": "미상",
@@ -286,13 +253,9 @@ CHARACTER_DATA = {
         ],
         "description": "여유롭고 낙천적인 성격이지만, 깊은 내면에는 과거의 무거운 선택에 대한 죄책감이 숨어있는 수감자.",
         "relations": [
-            ("돈키호테", "장난을 치며 잘 받아주는 친근한 언니 동생 관계"),
-            ("싱클레어", "누나처럼 여린 마음을 다독여주는 관계"),
-            ("소냐", "과거 로쟈가 살던 동네의 사상적 영향을 준 인물")
+            ("돈키호테", "장난을 치며 잘 받아주는 친근한 언니 동생 관계")
         ],
-        "songs": [
-            {"title": "로쟈 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "로쟈 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/c/c5/Rodion_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/c/c5/Rodion_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/c/c5/Rodion_Icon.png",
@@ -300,8 +263,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "싱클레어": {
-        "color": "#F39C12",
-        "bg_color": "#261f0d",
+        "color": "#F39C12", # 싱클레어 주황/노란계열
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/4/4e/Canto_III_Background.png", # 3장 K사/가토 배경
         "title": "제11수감자 싱클레어",
         "gender": "남성",
         "birthday": "미상",
@@ -315,13 +278,9 @@ CHARACTER_DATA = {
         "description": "순수하고 여린 소년이지만, 극한의 상황에서 잠재된 광기와 폭력성을 드러내는 수감자.",
         "relations": [
             ("크로마르", "과거 트라우마의 원흉이자 벗어날 수 없는 악연"),
-            ("데미안", "싱클레어에게 조언을 건네며 이끄는 미스터리한 인물"),
-            ("료슈", "공포의 대상이자 무서워하는 선배 수감자"),
-            ("홍루", "순진한 성향이 비슷해 편안함을 느끼는 상대")
+            ("데미안", "싱클레어에게 조언을 건네며 이끄는 미스터리한 인물")
         ],
-        "songs": [
-            {"title": "싱클레어 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "싱클레어 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/a/ab/Sinclair_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/a/ab/Sinclair_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/a/ab/Sinclair_Icon.png",
@@ -329,8 +288,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "그레고르": {
-        "color": "#7F8C8D",
-        "bg_color": "#1a1c1d",
+        "color": "#7F8C8D", # 그레고르 회색/카키
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/b/b4/Lab_Background.png",
         "title": "제12수감자 그레고르",
         "gender": "남성",
         "birthday": "미상",
@@ -343,13 +302,9 @@ CHARACTER_DATA = {
         ],
         "description": "과거 연기전쟁의 용병 출신으로, 벌레로 변이된 오른팔을 지니고 있는 베테랑 수감자.",
         "relations": [
-            ("오티스", "군대식 농담이나 서로 툴툴거리는 앙숙"),
-            ("헤르만", "그레고르의 벌레 팔과 과거 전쟁에 깊게 관여된 인물"),
-            ("단테", "농담을 주고받으며 편하게 대하는 관리자")
+            ("오티스", "군대식 농담이나 서로 툴툴거리는 앙숙")
         ],
-        "songs": [
-            {"title": "그레고르 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}
-        ],
+        "songs": [{"title": "그레고르 테마곡", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/f/f6/Gregor_Icon.png",
         "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/f/f6/Gregor_Icon.png",
         "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/f/f6/Gregor_Icon.png",
@@ -374,15 +329,40 @@ if selected != st.session_state["selected_char"]:
 
 current_data = CHARACTER_DATA[st.session_state["selected_char"]]
 theme_color = current_data["color"]
-bg_color = current_data["bg_color"]
+bg_image_url = current_data["bg_image"]
 
-# CSS 스타일 주입
+# CSS 스타일 주입 (캐릭터별 배경 이미지 + 상징 컬러 글씨 + 가독성을 위한 반투명 패널 레이아웃)
 st.markdown(f"""
     <style>
-    .stApp {{ background-color: {bg_color}; }}
-    h1, h2, h3, p, span, label, li {{ color: {theme_color} !important; }}
-    .stRadio label {{ color: #FFFFFF !important; }}
-    hr {{ border-color: {theme_color}; }}
+    .stApp {{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("{bg_image_url}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+    
+    /* 텍스트 상징색 적용 */
+    h1, h2, h3, p, span, label, li {{
+        color: {theme_color} !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    }}
+    
+    .stRadio label {{
+        color: #FFFFFF !important;
+    }}
+    
+    hr {{
+        border-color: {theme_color};
+    }}
+    
+    /* 가독성을 높이기 위한 컨테이너 박스 꾸미기 */
+    div.block-container {{
+        background-color: rgba(15, 15, 15, 0.85);
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid {theme_color};
+        box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    }}
     </style>
 """, unsafe_allow_html=True)
 
@@ -390,7 +370,7 @@ st.markdown(f"""
 if current_data["is_lobby"]:
     st.title("LIMBUS COMPANY - LOBBY")
     st.markdown(current_data["description"])
-    st.image(current_data["image"], use_container_width=True)
+    st.info("💡 좌측 사이드바에서 수감자를 선택하면 해당 인물의 스토리 배경과 상징 컬러 테마로 전환됩니다.")
 else:
     # 캐릭터 상세 페이지 레이아웃
     col1, col2 = st.columns([1, 1.5])
