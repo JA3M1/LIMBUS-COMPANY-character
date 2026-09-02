@@ -7,13 +7,39 @@ st.set_page_config(page_title="Limbus Company Info", page_icon="⏰", layout="wi
 CHARACTER_DATA = {
     "기본 로비": {
         "color": "#FFD700", # 황금색
-        "bg_image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop", # 로비 감성의 어두운 테마 배경 대체 링크
+        "bg_image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop",
         "description": "버스를 선택하여 수감자의 정보를 확인하세요.",
         "is_lobby": True
     },
+    "단테": {
+        "color": "#b01c37", # 요청하신 단테 상징색 적용
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/b/b4/Lab_Background.png",
+        "title": "관리자 단테",
+        "gender": "미상",
+        "birthday": "미상",
+        "quote": '"틱... 톡... (수감자들을 부활시키며)"',
+        "stagger": "불사신 (수감자들의 고통을 대신 느낌)",
+        "skills": [
+            "기본 능력: 수감자 부활 (황금가지의 힘)",
+            "패시브: 수감자와의 감정 공감 및 고통 공유",
+            "특수 능력: 시간 되감기 및 지휘"
+        ],
+        "description": "머리 대신 거대한 황금빛 시계를 달고 있는 림버스 컴퍼니의 제1관리자. 수감자들을 부활시킬 수 있는 유일한 존재이지만, 기억을 잃은 상태이다.",
+        "relations": [
+            ("베르길리우스", "버스의 총지휘관이자 단테를 이끄는 안내자"),
+            ("카론", "메피스토펠레스를 운전하는 말없는 동반자"),
+            ("수감자들", "단테를 '시계대가리'라 부르며 때로는 불평하고 때로는 의지하는 부하들")
+        ],
+        "songs": [{"title": "Limbus Company Main Theme", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
+        "image": "https://static.wikia.nocookie.net/limbuscompany/images/a/a2/Dante_Icon.png",
+        "combat_image": "https://static.wikia.nocookie.net/limbuscompany/images/a/a2/Dante_Icon.png",
+        "post_story_image": "https://static.wikia.nocookie.net/limbuscompany/images/a/a2/Dante_Icon.png",
+        "logo": "https://static.wikia.nocookie.net/limbuscompany/images/a/a2/Dante_Icon.png",
+        "is_lobby": False
+    },
     "이상": {
-        "color": "#4A90E2", # 이상 상징 파란색
-        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/e/ee/Canto_IV_Background.png", # 4장 장화원 배경 등
+        "color": "#4A90E2",
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/e/ee/Canto_IV_Background.png",
         "title": "제1수감자 이상",
         "gender": "남성",
         "birthday": "미상",
@@ -39,7 +65,7 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "파우스트": {
-        "color": "#FFB1B4", # 파우스트 핑크
+        "color": "#FFB1B4",
         "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/b/b4/Lab_Background.png",
         "title": "제2수감자 파우스트",
         "gender": "여성",
@@ -54,8 +80,7 @@ CHARACTER_DATA = {
         "description": "도시 최고의 천재라 자부하며, 메피스토펠레스의 엔진을 설계한 수감자.",
         "relations": [
             ("단테", "관리자의 역할을 설명해주지만, 종종 오만한 태도를 보임"),
-            ("베르길리우스", "서로의 속내를 숨긴 채 협력하는 비즈니스 관계"),
-            ("카론", "자신이 만든 버스를 운전하는 길잡이")
+            ("베르길리우스", "서로의 속내를 숨긴 채 협력하는 비즈니스 관계")
         ],
         "songs": [{"title": "파우스트 관련 테마 OST", "url": "https://www.youtube.com/watch?v=V80o6Z7SgqE"}],
         "image": "https://static.wikia.nocookie.net/limbuscompany/images/8/82/Faust_Icon.png",
@@ -65,8 +90,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "돈키호테": {
-        "color": "#FFD700", # 돈키호테 노란색
-        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/7/70/Canto_VII_Background.png", # 7장 라만차랜드 배경
+        "color": "#FFD700",
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/7/70/Canto_VII_Background.png",
         "title": "제3수감자 돈키호테",
         "gender": "여성",
         "birthday": "미상",
@@ -90,7 +115,7 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "료슈": {
-        "color": "#C0392B", # 료슈 적색
+        "color": "#C0392B",
         "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/2/2b/Alleyway_Background.png",
         "title": "제4수감자 료슈",
         "gender": "여성",
@@ -114,8 +139,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "히스클리프": {
-        "color": "#4682B4", # 히스클리프 스틸블루/남색 계열
-        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/5/52/Canto_VI_Background.png", # 6장 워더링하이츠 배경
+        "color": "#4682B4",
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/5/52/Canto_VI_Background.png",
         "title": "제5수감자 히스클리프",
         "gender": "남성",
         "birthday": "미상",
@@ -190,8 +215,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "이스마엘": {
-        "color": "#FF7E00", # 이스마엘 주황색
-        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/9/93/Canto_V_Background.png", # 5장 바다/위대한 항로 배경
+        "color": "#FF7E00",
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/9/93/Canto_V_Background.png",
         "title": "제8수감자 이스마엘",
         "gender": "여성",
         "birthday": "미상",
@@ -215,7 +240,7 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "오티스": {
-        "color": "#27AE60", # 오티스 초록색
+        "color": "#27AE60",
         "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/b/b4/Lab_Background.png",
         "title": "제9수감자 오티스",
         "gender": "여성",
@@ -239,7 +264,7 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "로쟈": {
-        "color": "#9B59B6", # 로쟈 보라색
+        "color": "#9B59B6",
         "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/2/2b/Alleyway_Background.png",
         "title": "제10수감자 로쟈",
         "gender": "여성",
@@ -263,8 +288,8 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "싱클레어": {
-        "color": "#F39C12", # 싱클레어 주황/노란계열
-        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/4/4e/Canto_III_Background.png", # 3장 K사/가토 배경
+        "color": "#F39C12",
+        "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/4/4e/Canto_III_Background.png",
         "title": "제11수감자 싱클레어",
         "gender": "남성",
         "birthday": "미상",
@@ -288,7 +313,7 @@ CHARACTER_DATA = {
         "is_lobby": False
     },
     "그레고르": {
-        "color": "#7F8C8D", # 그레고르 회색/카키
+        "color": "#7F8C8D",
         "bg_image": "https://static.wikia.nocookie.net/limbuscompany/images/b/b4/Lab_Background.png",
         "title": "제12수감자 그레고르",
         "gender": "남성",
@@ -321,7 +346,7 @@ if "selected_char" not in st.session_state:
 st.sidebar.title("⏰ 버스 터미널")
 st.sidebar.markdown("---")
 char_list = list(CHARACTER_DATA.keys())
-selected = st.sidebar.radio("수감자 / 로비 선택", char_list)
+selected = st.sidebar.radio("관리자 / 수감자 / 로비 선택", char_list)
 
 if selected != st.session_state["selected_char"]:
     st.session_state["selected_char"] = selected
@@ -370,7 +395,7 @@ st.markdown(f"""
 if current_data["is_lobby"]:
     st.title("LIMBUS COMPANY - LOBBY")
     st.markdown(current_data["description"])
-    st.info("💡 좌측 사이드바에서 수감자를 선택하면 해당 인물의 스토리 배경과 상징 컬러 테마로 전환됩니다.")
+    st.info("💡 좌측 사이드바에서 관리자(단테)나 수감자를 선택하면 해당 인물의 스토리 배경과 상징 컬러 테마로 전환됩니다.")
 else:
     # 캐릭터 상세 페이지 레이아웃
     col1, col2 = st.columns([1, 1.5])
@@ -402,7 +427,7 @@ else:
         st.markdown(f"### 📌 캐릭터 소개")
         st.markdown(current_data['description'])
         
-        st.markdown("### ⚔️ 기본 인격 스킬")
+        st.markdown("### ⚔️ 기본 능력 및 스킬")
         for skill in current_data["skills"]:
             st.markdown(f"- {skill}")
             
